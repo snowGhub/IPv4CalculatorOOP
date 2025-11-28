@@ -1,3 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-Console.WriteLine("Hello, World!");
+namespace IPv4Calculator.CLI;
+
+internal static class Program
+{
+    private static void Main(string[] args)
+    {
+     Console.WriteLine("Hello, World!");   
+    }
+}
+
