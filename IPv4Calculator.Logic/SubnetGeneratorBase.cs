@@ -8,7 +8,10 @@ public abstract class SubnetGeneratorBase
     {
         var newCidr = CalculateNewCidr(baseNetwork.Cidr, parameter);
 
+        if (newCidr > 30) throw new InvalidOperationException("Subnetting nicht möglich! Netz ist zu klein.");
         if (newCidr <= baseNetwork.Cidr) throw new InvalidOperationException("Parameter passt nicht ins Ausgangsnetz!");
+        
+        return CreateSubnets(baseNetwork, newCidr);
     }
 
     protected abstract int CalculateNewCidr(int currentCidr, int parameter);

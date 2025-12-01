@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\IPv4Calculator.Core\IPv4Calculator.Core.csproj" />
+      <ProjectReference Include="..\IPv4Calculator.Logic\IPv4Calculator.Logic.csproj" />
     </ItemGroup>
 
 </Project>
