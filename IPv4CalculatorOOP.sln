@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPv4CalculatorOOP", "IPv4CalculatorOOP\IPv4CalculatorOOP.csproj", "{09EAB1BB-2487-40C9-A2D6-C2D18F98A0BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPv4Calculator.Presentation", "IPv4Calculator.Presentation\IPv4Calculator.Presentation.csproj", "{09EAB1BB-2487-40C9-A2D6-C2D18F98A0BA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPv4Calculator.Core", "IPv4Calculator.Core\IPv4Calculator.Core.csproj", "{8FD74A93-39AB-4BF1-AF9B-54B338B88F6B}"
 EndProject

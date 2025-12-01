@@ -12,7 +12,7 @@ public class IPv4Address(uint value) : IpAddressBase
         if (parts.Length != 4) throw new FormatException("Input muss aus 4 Oktetts bestehen!");
 
         uint result = 0;
-        for (int i = 0; i < 4; i++)
+        for (var i = 0; i < 4; i++)
         {
             if (!byte.TryParse(parts[i], out byte octet))
                 throw new FormatException($"Oktett {i + 1} ('{parts[i]}') ist ungültig. Muss zwischen 0 und 255 liegen!");
@@ -35,8 +35,32 @@ public class IPv4Address(uint value) : IpAddressBase
     }
 
     public override string ToString() => string.Join('.', GetBytes());
+
+    public int ToCidr()
+    {
+        var temp = _value;
+        var cidr = 0;
+        // 8 HEX = 1000
+        var checker = 0x80000000;
+
+        for (var i = 0; i < 32; i++)
+        {
+            if ((temp & checker) == checker)
+            {
+                cidr++;
+                checker = checker >> 1;
+            }
+            else
+            {
+                // Sobald eine 0 reinläuft, ist Schluss (Maske muss immer zusammenhängen)
+                break;
+            }
+        }
+
+        return cidr;
+    }
     
-    public uint ToUint() => _value;
+    //public uint ToUint() => _value;
 
     public static IPv4Address operator &(IPv4Address a, IPv4Address b) => new(a._value & b._value);
     public static IPv4Address operator ~(IPv4Address a) => new(~a._value);
