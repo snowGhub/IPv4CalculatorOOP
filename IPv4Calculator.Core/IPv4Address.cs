@@ -60,14 +60,9 @@ public class IPv4Address(uint value) : IpAddressBase
         return cidr;
     }
     
-    //public uint ToUint() => _value;
-
     public static IPv4Address operator &(IPv4Address a, IPv4Address b) => new(a._value & b._value);
     public static IPv4Address operator ~(IPv4Address a) => new(~a._value);
     public static IPv4Address operator |(IPv4Address a, IPv4Address b) => new(a._value | b._value);
     public static IPv4Address operator +(IPv4Address a, uint val) => new(a._value + val);
     public static IPv4Address operator -(IPv4Address a, uint val) => new(a._value - val);
-    
-    // Ich erwarte, dass wenn die Instanz dieser Klasse existiert, die IP immer gültig ist!
-    public override bool IsValid() => true;
 }
